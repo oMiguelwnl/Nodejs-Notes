@@ -1,5 +1,8 @@
 import express, { Request, Response, urlencoded } from "express";
 import path from "path";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 import mustache from "mustache-express";
 import mainRoutes from "./routes/index";
@@ -20,4 +23,4 @@ server.use((req: Request, res: Response) => {
   res.status(404).send("Not found");
 });
 
-server.listen(3333);
+server.listen(process.env.PORT);
