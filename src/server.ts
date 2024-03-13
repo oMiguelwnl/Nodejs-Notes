@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response, urlencoded } from "express";
 import path from "path";
 
 import mustache from "mustache-express";
@@ -11,6 +11,8 @@ server.set("views", path.join(__dirname, "views"));
 server.engine("mustache", mustache());
 
 server.use(express.static(path.join(__dirname, "../public")));
+
+server.use(urlencoded({ extended: true }));
 
 server.use(mainRoutes);
 
